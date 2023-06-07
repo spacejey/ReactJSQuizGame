@@ -1,38 +1,36 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-
-// Bootstrap
-import { Button, Container } from 'react-bootstrap'
-
-// Components
+import { useParams } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 import DummyData from '../common/DummyData'
 
-
 const QuizPage = () => {
-  const { quizId } = useParams()
-  const [ quizData, setQuizData ] = useState([])
+  const { quizCategory, quizId } = useParams()
+  const [ selectedQuiz, setSelectedQuiz ] = useState([])
+  const [ currentQuizIndex, setCurrentQuizIndex ] = useState(0)
+  const currentQuestion = selectedQuiz[currentQuizIndex]
   const [ score, setScore ] = useState(0)
   const [ showScore, setShowScore ] = useState(false)
-  const [ currentQuizIndex, setCurrentQuizIndex ] = useState(0)
+  const [ isGameOver, setIsGameOver ] = useState(false)
 
   useEffect(() => {
-    const getQuizzes = async () => {
+    const bringQuiz = async () => {
       try {
-        const matchingQuizzes = await DummyData.filter(quiz => quiz.id === Number(quizId))
-        console.log('QUIZPAGE!=>', matchingQuizzes)
-        setQuizData(matchingQuizzes)
+        const bringQuiz = await DummyData.filter(
+          quiz => quiz.category === quizCategory && quiz.difficulty === quizId)
+        console.log(bringQuiz)
+        setSelectedQuiz(bringQuiz)
       } catch (error) {
         console.log(error)
       }
     }
-    getQuizzes()
-  }, [quizId])
+    bringQuiz()
+  }, [quizCategory, quizId])
+
 
   const handleAnswerClick = (index) => {
     if (currentQuestion) {
       const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
-      if (isCorrectAnswer){
+      if (isCorrectAnswer) {
         console.log('Correct')
         setScore(score + 10)
         handleNextQuiz()
@@ -40,37 +38,39 @@ const QuizPage = () => {
       setShowScore(true)
     }
   }
-  
+
+
   const handleNextQuiz = () => {
-    setCurrentQuizIndex(currentQuizIndex + 1)
+    if (currentQuizIndex === selectedQuiz.length - 1){
+      setIsGameOver(true)
+    } else {
+      setCurrentQuizIndex(currentQuizIndex + 1)
+    }
   }
 
-  const currentQuestion = quizData[currentQuizIndex]
 
   return (
-    <>
-      <Container>
-        <div>
-          <h4>Score: {score}</h4>
-          {currentQuestion && (
-            <>
-              <div>
-                <h4>{currentQuestion.category}</h4>
-                <h4>Difficulty: {currentQuestion.difficulty}</h4>
-              </div>
-              <div className='question-text'>
-                <h1>{currentQuestion.question}</h1>
-              </div>
-              <div className='answer-section'>
-                {currentQuestion.answerOptions && currentQuestion.answerOptions.map((answerOption, index) => (
-                  <button key={index} onClick={() => handleAnswerClick(index)}>{answerOption.answerText}</button>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </Container>
-    </>
+    <Container>
+      <div>
+        <h4>Score: {score}</h4>
+        {currentQuestion && (
+          <>
+            <div>
+              <h4>{currentQuestion.category}</h4>
+              <h4>Difficulty: {currentQuestion.difficulty}</h4>
+            </div>
+            <div className='question-text'>
+              <h1>{currentQuestion.question}</h1>
+            </div>
+            <div className='answer-section'>
+              {currentQuestion.answerOptions && currentQuestion.answerOptions.map((answerOption, index) => (
+                <button key={index} onClick={() => handleAnswerClick(index)}>{answerOption.answerText}</button>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </Container>
   )
 }
 

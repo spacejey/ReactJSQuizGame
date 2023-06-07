@@ -43,3 +43,5 @@ const QuizIndex = () => {
 }
 
 export default QuizIndex
+
+
