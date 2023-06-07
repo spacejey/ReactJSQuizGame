@@ -30,6 +30,7 @@ useState에 기본값 배열로 주지 않고 있었다. 안그러면 undefined�
 4-3 DummyData 배열에서 quizCategory와 일치하는 데이터를 필터링하여 selecQuizData 변수에 저장했다.
 4-4 await로 비동기 작업이 완료될때까지 기다림.
 4-5 state 변수애 값을 적용시켰다.
+4-6 더미 데이터를 추가했더니 버튼이 문제수만큼 생김. 중복 난이도값을 없애는 걸로.
 
 
 5. 기본 구조 마무리 후, development 브랜치를 origin으로 푸쉬했다. 진작에 했었어야 했는데, 아직 깃허브 터미널 사용에 미숙하다.
@@ -40,7 +41,8 @@ useState에 기본값 배열로 주지 않고 있었다. 안그러면 undefined�
   - currentQuiz state
   - score state
 6-3. 데이터 불러오던 중 에러 발견. 계속 빈 배열이 반환된다는 점이었는데, id는 숫자로 인식해주어야 한다. Number(quizId) 추가. 또한 한가지 문제만 반환해야하니까 find를 사용했다.
-
+6-4. 작성 완료
+6-5. 더미데이터 추가했는데 발견한 사실, 못맞춰도 다음 문제로 넘어가야된다. 수정 시작. 일단 QuizDifficulty로 가서 중복 버튼좀 없애자.
 
 
   QuizIndex
