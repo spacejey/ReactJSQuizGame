@@ -22,8 +22,8 @@ const DummyData = [
     answer: 'Single',
     question: 'Who painted the ceiling of the Sistine Chapel?',
     answerOptions: [
-      { answerText: 'Leonardo da Vinci', isCorrect: false },
       { answerText: 'Raphael', isCorrect: false },
+      { answerText: 'Leonardo da Vinci', isCorrect: false },
       { answerText: 'Michelangelo', isCorrect: true },
       { answerText: 'Salvador Dali', isCorrect: false }
     ],
@@ -78,6 +78,7 @@ const DummyData = [
     id: 1,
     question_id: 6,
     difficulty: 'Easy',
+    answer: 'Single',
     question: 'Which artist is famous for painting "The Last Supper"?',
     answerOptions: [
       { answerText: 'Michelangelo', isCorrect: false },

@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import DummyData from '../common/DummyData'
 
+// Components
+import GameOverModal from '../common/GameOverModal'
+
 // Bootstrap
 import { Container } from 'react-bootstrap'
 
@@ -46,7 +49,6 @@ const QuizPage = () => {
   const handleNextQuiz = () => {
     if (currentQuizIndex === selectedQuiz.length - 1){
       setIsGameOver(true)
-      alert('Game Over!')
     } else {
       setCurrentQuizIndex(currentQuizIndex + 1)
     }
@@ -55,6 +57,7 @@ const QuizPage = () => {
 
   return (
     <Container>
+      {isGameOver && <GameOverModal score={score}/>}
       <div>
         <h4>Score: {score}</h4>
         {currentQuestion && (
@@ -62,6 +65,7 @@ const QuizPage = () => {
             <div>
               <h4>{currentQuestion.category}</h4>
               <h4>Difficulty: {currentQuestion.difficulty}</h4>
+              <h4>Answer: {currentQuestion.answer}</h4>
             </div>
             <div className='question-text'>
               <h1>{currentQuestion.question}</h1>
