@@ -16,6 +16,7 @@ const QuizPage = () => {
   const [ showScore, setShowScore ] = useState(false)
   const [ isGameOver, setIsGameOver ] = useState(false)
   const [ showModal, setShowModal ] = useState(false)
+  const [ selectedAnswers, setSelectedAnswers ] = useState([])
   const currentQuestion = selectedQuiz[currentQuizIndex]
   
   useEffect(() => {
