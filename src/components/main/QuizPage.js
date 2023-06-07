@@ -11,49 +11,63 @@ import DummyData from '../common/DummyData'
 
 const QuizPage = () => {
   const { quizId } = useParams()
-  const [ quizData, setQuizData ] = useState({})
+  const [ quizData, setQuizData ] = useState([])
   const [ score, setScore ] = useState(0)
   const [ showScore, setShowScore ] = useState(false)
+  const [ currentQuizIndex, setCurrentQuizIndex ] = useState(0)
 
   useEffect(() => {
-    const getQuiz = async () => {
+    const getQuizzes = async () => {
       try {
-        const quizStartData = await DummyData.find(quiz => quiz.id === Number(quizId))
-        console.log('QUIZPAGE!=>', quizStartData)
-        setQuizData(quizStartData)
+        const matchingQuizzes = await DummyData.filter(quiz => quiz.id === Number(quizId))
+        console.log('QUIZPAGE!=>', matchingQuizzes)
+        setQuizData(matchingQuizzes)
       } catch (error) {
         console.log(error)
       }
     }
-    getQuiz()
+    getQuizzes()
   }, [quizId])
 
   const handleAnswerClick = (index) => {
-    const isCorrectAnswer = quizData.answerOptions[index].isCorrect
-    if (isCorrectAnswer){
-      console.log('Correct')
-      setScore(score + 10)
+    if (currentQuestion) {
+      const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
+      if (isCorrectAnswer){
+        console.log('Correct')
+        setScore(score + 10)
+        handleNextQuiz()
+      }
+      setShowScore(true)
     }
-    setShowScore(true)
   }
+  
+  const handleNextQuiz = () => {
+    setCurrentQuizIndex(currentQuizIndex + 1)
+  }
+
+  const currentQuestion = quizData[currentQuizIndex]
 
   return (
     <>
       <Container>
         <div>
-          <p>YOUR SCORE IS {score}</p>
-          <div>
-            <h4>{quizData.category}</h4>
-            <h4>Difficulty: {quizData.difficulty}</h4>
-          </div>
-          <div className='question-text'>
-            <h1>{quizData.question}</h1>
-          </div>
-          <div className='answer-section'>
-            {quizData.answerOptions && quizData.answerOptions.map((answerOption, index) => (
-              <button key={index} onClick={() => handleAnswerClick(index)}>{answerOption.answerText}</button>
-            ))}
-          </div>
+          <h4>Score: {score}</h4>
+          {currentQuestion && (
+            <>
+              <div>
+                <h4>{currentQuestion.category}</h4>
+                <h4>Difficulty: {currentQuestion.difficulty}</h4>
+              </div>
+              <div className='question-text'>
+                <h1>{currentQuestion.question}</h1>
+              </div>
+              <div className='answer-section'>
+                {currentQuestion.answerOptions && currentQuestion.answerOptions.map((answerOption, index) => (
+                  <button key={index} onClick={() => handleAnswerClick(index)}>{answerOption.answerText}</button>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </Container>
     </>
