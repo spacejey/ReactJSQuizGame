@@ -44,6 +44,7 @@ useState에 기본값 배열로 주지 않고 있었다. 안그러면 undefined�
 6-4. 작성 완료
 6-5. 더미데이터 추가했는데 발견한 사실, 못맞춰도 다음 문제로 넘어가야된다. 수정 시작. 일단 QuizDifficulty로 가서 중복 버튼좀 없애자. 중복값을 없앴더니 퀴즈스타트 페이지에 데이터 연동이 안됨. 
 6-6. Params 값을 계속 잘못 받고 있었다. 4-6에서 루트 수정 후 다시 값 받아옴. 작동 완료.
+(참고: https://www.youtube.com/watch?v=3D5r3JLnJJA)
 6-7. 준비된 게임이 끝나면 모달창을 띄우기 위해 setIsGameOver state를 추가하고, handleNextQuiz에 넣었다.
 
 7.QuizPage
