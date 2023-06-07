@@ -17,8 +17,8 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/quizIndex' element={<QuizIndex />} />
-          <Route path='/difficulty/:quizId' element={<QuizDifficalty />} />
-          <Route path='/quizPage' element={<QuizPage />} />
+          <Route path='/:quizCategory' element={<QuizDifficalty />} />
+          <Route path='/quizPage/:quizId' element={<QuizPage />} />
         </Routes>
       </BrowserRouter>
     </div>
