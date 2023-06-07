@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 import DummyData from '../common/DummyData'
+
+// Bootstrap
+import { Container } from 'react-bootstrap'
 
 const QuizPage = () => {
   const { quizCategory, quizId } = useParams()
   const [ selectedQuiz, setSelectedQuiz ] = useState([])
   const [ currentQuizIndex, setCurrentQuizIndex ] = useState(0)
-  const currentQuestion = selectedQuiz[currentQuizIndex]
   const [ score, setScore ] = useState(0)
   const [ showScore, setShowScore ] = useState(false)
   const [ isGameOver, setIsGameOver ] = useState(false)
-
+  const [ showModal, setShowModal ] = useState(false)
+  const currentQuestion = selectedQuiz[currentQuizIndex]
+  
   useEffect(() => {
     const bringQuiz = async () => {
       try {
