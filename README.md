@@ -14,21 +14,31 @@ Install
   2-1. 나중에 difficulty할 때 그냥 한 배열에 여러 오브젝트들로 나눠져있는 데이터 형식이 편하다는 것을 깨닫고 수정함.
   각 문제마다 다른 id를 가지고 있는 것이 더 말이 된다. 바보같이 왜 처음에 생각 못했지?
 
-3. 인덱스 추가시 첫 에러
+3. Quiz Index
 - TypeError: Cannot read properties of null (reading 'useContext') 
 npm install react-bootstrap-validation --save 이걸 다운받아서 그럼. 기본 부스트랩 받으니 완료.
   3-1. 인덱스에는 state 사용 안하고 바로 더미데이터를 넣으려고 했다가, 나중에 API 재사용의 효용성을 높이기 위해 useEffect 제작했음.
   3-2. 이때 카테고리 이름이 중복되어 노출되는 것을 방지하기 위해 set 메소드를 사용하여 배열의 중복값 제거하고 새로운 배열을 생성하는 함수 제작.
+  (참고: https://jsikim1.tistory.com/227)
   3-3. 그렇게 생성된 배열들의 카테고리만 뽑아내는 셀렉티드 카테고리 제작하여 state에 넣어주었다.
 
 4. Quiz Difficulty
-- 여기 역시 useEffect를 사용해서 데이터를 넣었다. 
+- 에러 발생 Objects are not valid as a React child. If you meant to render a collection of children, use an array instead
+useState에 기본값 배열로 주지 않고 있었다. 안그러면 undefined가 반환되기 때문에 타입이 배열이라면 꼭 초기화값으로 배열 넣어줘야 한다. 
+4-1 여기 역시 quizCategory 값에 따라 데이터가 달라지도록 useEffect를 사용했다. quizCategory가 변경될 때마다 콜백함수가 실행될 것이다. 
+4-2 try catch로 에러를 캐치하려고 했고
+4-3 DummyData 배열에서 quizCategory와 일치하는 데이터를 필터링하여 selecQuizData 변수에 저장했다.
+4-4 await로 비동기 작업이 완료될때까지 기다림.
+4-5 state 변수애 값을 적용시켰다.
+
 
 5. 기본 구조 마무리 후, development 브랜치를 origin으로 푸쉬했다. 진작에 했었어야 했는데, 아직 깃허브 터미널 사용에 미숙하다.
 
+6. QuizDifficulty에서 Link로 이동된 QuizPage('/quizPage/${data.id}') 작업. data.id는 고유 퀴즈마다의 아이디이다.
+6-1. useEffect를 사용하여 
 
-  BuildQuizIndex
+  QuizIndex
   DummyData
   development
   master
-* quizPage
+  quizPage
