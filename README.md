@@ -50,6 +50,9 @@ useState에 기본값 배열로 주지 않고 있었다. 안그러면 undefined�
 7.QuizPage
 7-1. 한 난이도에 여러개의 퀴즈를 넣으려고 더미데이터도 바꿈. 6-5에서 버튼 중복값 일어나길래 중복값 제거도 했음. 그런데 데이터가 들어오질 않음. useEffect에 필터가 잘못되어있는 것 같다. 아무래도 useParams를 잘못 이해하고 있는듯 하다. 모르는 점 찾음. 
 
+8. Modal 제작
+8. ㅡㅐ
+
 
   QuizIndex
   DummyData
