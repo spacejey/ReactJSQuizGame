@@ -11,7 +11,7 @@ const QuizIndex = () => {
   const [ indexData, setIndexData ] = useState([])
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = () => {
       try {
         const indexCategory = Array.from(new Set(DummyData.map(data => data.category)))
         const selectedCategory = indexCategory.map(category => ({ category }))
