@@ -46,6 +46,7 @@ const QuizPage = () => {
   const handleNextQuiz = () => {
     if (currentQuizIndex === selectedQuiz.length - 1){
       setIsGameOver(true)
+      alert('Game Over!')
     } else {
       setCurrentQuizIndex(currentQuizIndex + 1)
     }
