@@ -35,7 +35,13 @@ useState에 기본값 배열로 주지 않고 있었다. 안그러면 undefined�
 5. 기본 구조 마무리 후, development 브랜치를 origin으로 푸쉬했다. 진작에 했었어야 했는데, 아직 깃허브 터미널 사용에 미숙하다.
 
 6. QuizDifficulty에서 Link로 이동된 QuizPage('/quizPage/${data.id}') 작업. data.id는 고유 퀴즈마다의 아이디이다.
-6-1. useEffect를 사용하여 
+6-1. useEffect를 사용하여 데이터 비동기로 불러오고
+6-2. 랜더링 jsx 생성
+  - currentQuiz state
+  - score state
+6-3. 데이터 불러오던 중 에러 발견. 계속 빈 배열이 반환된다는 점이었는데, id는 숫자로 인식해주어야 한다. Number(quizId) 추가. 또한 한가지 문제만 반환해야하니까 find를 사용했다.
+
+
 
   QuizIndex
   DummyData
