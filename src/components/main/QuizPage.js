@@ -40,29 +40,19 @@ const QuizPage = () => {
 
 
   const handleAnswerClick = (index) => {
-    const userSelectedAnswer = currentQuestion.answer
-    console.log('User selected answer:', userSelectedAnswer)
-    if (userSelectedAnswer === 'Double') {
-      const correctAnswerCount = currentQuestion.answerOptions
-        .filter((answerOption) => answerOption.isCorrect)
-        .map((answerOption) => answerOption.answerText)
-      console.log('Multi correct answers:', correctAnswerCount)
-    }
-
     const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
     if (currentQuestion) {
       if (isCorrectAnswer) {
         console.log('Correct')
         setScore(score + 10)
       } else {
-        console.log('Worng')
+        console.log('Worng') 
       }
-      setShowScore(true)
     }
     handleNextQuiz()
   }
   
-
+  
   const handleNextQuiz = () => {
     if (currentQuizIndex === selectedQuiz.length - 1){
       setIsGameOver(true)

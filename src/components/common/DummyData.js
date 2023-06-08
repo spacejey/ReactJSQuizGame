@@ -22,8 +22,8 @@ const DummyData = [
     answer: 'Single',
     question: 'Who painted the ceiling of the Sistine Chapel?',
     answerOptions: [
-      { answerText: 'Raphael', isCorrect: false },
       { answerText: 'Leonardo da Vinci', isCorrect: false },
+      { answerText: 'Raphael', isCorrect: false },
       { answerText: 'Michelangelo', isCorrect: true },
       { answerText: 'Salvador Dali', isCorrect: false }
     ],
