@@ -22,13 +22,14 @@ const QuizPage = () => {
   const [ showModal, setShowModal ] = useState(false)
   const [ selectedAnswers, setSelectedAnswers ] = useState([])
   const currentQuestion = selectedQuiz[currentQuizIndex]
+  console.log('currentQuestion', currentQuestion)
   
   useEffect(() => {
     const bringQuiz = async () => {
       try {
         const bringQuiz = await DummyData.filter(
           quiz => quiz.category === quizCategory && quiz.difficulty === quizId)
-        console.log(bringQuiz)
+        console.log('bringQuiz', bringQuiz)
         setSelectedQuiz(bringQuiz)
       } catch (error) {
         console.log(error)
@@ -39,17 +40,28 @@ const QuizPage = () => {
 
 
   const handleAnswerClick = (index) => {
+    const userSelectedAnswer = currentQuestion.answer
+    console.log('User selected answer:', userSelectedAnswer)
+    if (userSelectedAnswer === 'Double') {
+      const correctAnswerCount = currentQuestion.answerOptions.filter(
+        (answerOption) => answerOption.isCorrect).length
+    
+      console.log('Number of correct answers:', correctAnswerCount)
+    }
+
+    const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
     if (currentQuestion) {
-      const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
       if (isCorrectAnswer) {
         console.log('Correct')
         setScore(score + 10)
-        handleNextQuiz()
+      } else {
+        console.log('Worng')
       }
       setShowScore(true)
     }
+    handleNextQuiz()
   }
-
+  
 
   const handleNextQuiz = () => {
     if (currentQuizIndex === selectedQuiz.length - 1){
@@ -62,10 +74,10 @@ const QuizPage = () => {
 
   return (
     <Card className='quiz-card'>
-      {isGameOver && <GameOverModal score={score}/>}
+      {isGameOver && <GameOverModal score={score} total={selectedQuiz.length * 10}/>}
       {currentQuestion && (
         <>
-          <Card.Header as="h6">[ {currentQuestion.category} - {currentQuestion.difficulty} ] [ Score: {score} ] </Card.Header>
+          <Card.Header as="h6">[ {currentQuestion.category} - {currentQuestion.difficulty} ] [ Score: {score}/ {selectedQuiz.length * 10} ] </Card.Header>
           <Card.Body>
             <div>
               <p>Answer: {currentQuestion.answer}</p>

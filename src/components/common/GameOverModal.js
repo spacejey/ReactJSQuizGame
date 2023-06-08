@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
-function GameOverModal({ score }) {
+function GameOverModal({ score, total }) {
   const [show, setShow] = useState(false)
   const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ function GameOverModal({ score }) {
           <Modal.Title>Game Over!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Your Score: {score}
+          Your Score: {score}/ {total}!
         </Modal.Body>
         <Modal.Footer>
           <Link to={'/quizIndex'}>
