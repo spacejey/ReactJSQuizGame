@@ -1,0 +1,15 @@
+.home-container {
+  @extend %flex-center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.home-title {
+  font-size: 2rem;
+  margin-bottom: 20%;
+}
+
+.start-btn {
+  @extend %start-btn;
+  font-size: 2rem;
+}

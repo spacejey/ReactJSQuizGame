@@ -1,0 +1,12 @@
+.quiz-card {
+  width: 80vw;
+}
+
+.answer-section {
+  @extend %flex-center;
+  flex-direction: column;
+}
+
+.page-btns {
+  margin: 8px;
+}

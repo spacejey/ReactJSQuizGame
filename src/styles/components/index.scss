@@ -1,0 +1,26 @@
+.index-container {
+  @extend %flex-center;
+  height: 100vh;
+}
+
+.index-btns {
+  margin: 10px;
+}
+
+.Art {
+  padding: 10px 30px 10px 30px;
+  @extend %index-btn;
+  @extend %button-hover-art;
+}
+
+.Fashion {
+  padding: 10px 30px 10px 30px;
+  @extend %index-btn;
+  @extend %button-hover-fashion;
+}
+
+.Music {
+  padding: 10px 30px 10px 30px;
+  @extend %index-btn;
+  @extend %button-hover-music;
+}

@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-// Bootstrap
-import { Button, Container } from 'react-bootstrap'
-
 // Components
 import DummyData from '../common/DummyData'
+
+// Bootstrap
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+
 
 const QuizIndex = () => {
   const [ indexData, setIndexData ] = useState([])
@@ -28,13 +32,19 @@ const QuizIndex = () => {
   return (
     <>
       <Container>
-        {indexData.map((data, index) => (
-          <Link key={index} to={`/${data.category}`}>
-            <Button >
-              {data.category}
-            </Button>
-          </Link>
-        ))}
+        <Row>
+          <Col className='index-container'>
+            {indexData.map((data, index) => (
+              <Link key={index} to={`/${data.category}`}>
+                <div className='index-btns'>
+                  <Button className={`${data.category}`}>
+                    {data.category}
+                  </Button>
+                </div>
+              </Link>
+            ))}
+          </Col>
+        </Row>
       </Container>
     </>
   )

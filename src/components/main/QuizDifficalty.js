@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 // Bootstrap
-import { Button, Container } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 
 // Components
 import DummyData from '../common/DummyData'
@@ -30,7 +33,7 @@ const QuizDifficulty = () => {
 
   const handleButtonClick = (difficulty) => {
     const filteredQuiz = selectedQuiz.filter(data => data.difficulty === difficulty)
-    console.log(`문제 리스트 (${difficulty} 난이도):`, filteredQuiz)
+    console.log(filteredQuiz)
     window.location.href = `/${quizCategory}/${difficulty}`
   }
 
@@ -38,13 +41,17 @@ const QuizDifficulty = () => {
   return (
     <>
       <Container>
-        {[...new Set(selectedQuiz.map((data) => data.difficulty))].map((difficulty, index) => (
-          // <Link key={index} to={`/quizPage/${difficulty}`}>
-          <Button key={index} onClick={() => handleButtonClick(difficulty)} >
-            {difficulty}
-          </Button>
-          // </Link>
-        ))}
+        <Row>
+          <Col className='difficulty-container'>
+            {[...new Set(selectedQuiz.map((data) => data.difficulty))].map((difficulty, index) => (
+              <div  key={index} className='difficulty-btns'>
+                <Button className={difficulty} onClick={() => handleButtonClick(difficulty)} >
+                  {difficulty}
+                </Button>
+              </div>
+            ))}
+          </Col>
+        </Row>
       </Container>
     </>
   )

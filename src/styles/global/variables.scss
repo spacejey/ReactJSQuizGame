@@ -10,3 +10,68 @@
   background-repeat: no-repeat;
 }
 
+%start-btn {
+  background: rgba(99, 99, 99, 0.539);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  color: white;
+  border-radius: 50px;
+  z-index: 1;
+  padding: 10px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: 0.5s;
+  font-size: 30px;
+  &:hover{
+    border: 3px solid white;
+    letter-spacing: 3px;
+    font-size: 35px;
+    color: #ffffff;
+    background-color: rgb(254, 148, 166);
+  }
+}
+
+%index-btn {
+  background: rgba(99, 99, 99, 0.539);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  color: white;
+  border-radius: 50px;
+  z-index: 1;
+  padding: 10px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: 0.3s;
+  font-size: 30px;
+  &:hover{
+    border: 3px solid white;
+    letter-spacing: 3px;
+    font-size: 35px;
+    color: #ffffff;
+    background-color: rgb(254, 148, 166);
+  }
+}
+
+%button-hover-art{
+  &:hover {
+    background: #84ccd1;
+  }
+}
+
+%button-hover-fashion{
+  &:hover {
+    background: #da8fc0;
+  }
+}
+
+%button-hover-music{
+  &:hover {
+  background: #d3e094;
+  }
+}

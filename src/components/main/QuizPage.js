@@ -6,7 +6,11 @@ import DummyData from '../common/DummyData'
 import GameOverModal from '../common/GameOverModal'
 
 // Bootstrap
-import { Container } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 
 const QuizPage = () => {
   const { quizCategory, quizId } = useParams()
@@ -57,29 +61,29 @@ const QuizPage = () => {
 
 
   return (
-    <Container>
+    <Card className='quiz-card'>
       {isGameOver && <GameOverModal score={score}/>}
-      <div>
-        <h4>Score: {score}</h4>
-        {currentQuestion && (
-          <>
+      {currentQuestion && (
+        <>
+          <Card.Header as="h6">[ {currentQuestion.category} - {currentQuestion.difficulty} ] [ Score: {score} ] </Card.Header>
+          <Card.Body>
             <div>
-              <h4>{currentQuestion.category}</h4>
-              <h4>Difficulty: {currentQuestion.difficulty}</h4>
-              <h4>Answer: {currentQuestion.answer}</h4>
+              <p>Answer: {currentQuestion.answer}</p>
             </div>
             <div className='question-text'>
-              <h1>{currentQuestion.question}</h1>
+              <Card.Title>{currentQuestion.question}</Card.Title>
             </div>
             <div className='answer-section'>
               {currentQuestion.answerOptions && currentQuestion.answerOptions.map((answerOption, index) => (
-                <button key={index} onClick={() => handleAnswerClick(index)}>{answerOption.answerText}</button>
+                <div key={index} className='page-btns'>
+                  <Button onClick={() => handleAnswerClick(index)}>{answerOption.answerText}</Button>
+                </div>
               ))}
             </div>
-          </>
-        )}
-      </div>
-    </Container>
+          </Card.Body>
+        </>
+      )}
+    </Card>
   )
 }
 

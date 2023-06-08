@@ -1,0 +1,27 @@
+.difficulty-container {
+  @extend %flex-center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.difficulty-btns {
+  margin: 10px;
+}
+
+.Easy {
+  padding: 10px 30px 10px 30px;
+  @extend %index-btn;
+  @extend %button-hover-art;
+}
+
+.Medium {
+  padding: 10px 30px 10px 30px;
+  @extend %index-btn;
+  @extend %button-hover-fashion;
+}
+
+.Hard {
+  padding: 10px 30px 10px 30px;
+  @extend %index-btn;
+  @extend %button-hover-music;
+}
