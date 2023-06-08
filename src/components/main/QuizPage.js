@@ -43,10 +43,10 @@ const QuizPage = () => {
     const userSelectedAnswer = currentQuestion.answer
     console.log('User selected answer:', userSelectedAnswer)
     if (userSelectedAnswer === 'Double') {
-      const correctAnswerCount = currentQuestion.answerOptions.filter(
-        (answerOption) => answerOption.isCorrect).length
-    
-      console.log('Number of correct answers:', correctAnswerCount)
+      const correctAnswerCount = currentQuestion.answerOptions
+        .filter((answerOption) => answerOption.isCorrect)
+        .map((answerOption) => answerOption.answerText)
+      console.log('Multi correct answers:', correctAnswerCount)
     }
 
     const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
