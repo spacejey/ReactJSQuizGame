@@ -1,12 +1,77 @@
 .quiz-card {
   width: 80vw;
+  font-family: $sub-font;
+}
+
+.quiz-top-text {
+  display: flex;
+  justify-content: space-between;
+  font-family: $sub-font;
+  padding: 12px 20px 12px 20px;
+  color: rgb(93, 93, 93);
+  .quiz-categoty {
+    background-color: rgb(0, 229, 255);
+    padding: 3px 10px 3px 10px;
+    border-radius: 10px;
+  }
+  .quiz-score {
+    background-color: #efc4ff;
+    padding: 3px 10px 3px 10px;
+    border-radius: 10px;
+  }
+}
+
+.question-text {
+  text-align: center;
 }
 
 .answer-section {
   @extend %flex-center;
   flex-direction: column;
+  padding: 20px;
 }
 
 .page-btns {
   margin: 8px;
+  background-color: transparent;
+}
+
+.answer-btns {
+  background: rgba(99, 99, 99, 0.539);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  color: white;
+  border-radius: 50px;
+  z-index: 1;
+  padding: 10px 20px 10px 20px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: 0.3s;
+  font-size: 1rem;
+  &:hover{
+    border: 3px solid white;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+    color: #ffffff;
+    background-color: rgb(254, 148, 166);
+  }
+}
+
+@media only screen and (min-width: 630px) {
+  .quiz-card {
+    width: 70vw;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .quiz-card {
+    width: 60vw;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .quiz-card {
+    width: 50vw;
+  }
 }

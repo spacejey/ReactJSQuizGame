@@ -1,3 +1,6 @@
+$main-font: 'Bagel Fat One', cursive;
+$sub-font: 'Geologica', sans-serif;
+
 %flex-center {
   display: flex;
   justify-content: center;
@@ -75,3 +78,16 @@
   background: #d3e094;
   }
 }
+
+// %sub-title-shadow{
+//   font-family: $main-font;
+//   font-size: 3rem;
+//   color: #e90080;
+//   margin-bottom: 10%;
+//   text-shadow: 0px 0px 0 rgb(207,-23,138),
+//                 1px 1px 0 rgb(158,-72,89),
+//                 2px 2px  0 rgb(110,-120,41),
+//                 3px 3px 2px rgba(69,0,38,0),
+//                 3px 3px 1px rgba(69,0,38,0.5),
+//                 0px 0px 2px rgba(69,0,38,.2);
+// }

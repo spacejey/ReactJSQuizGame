@@ -43,6 +43,7 @@ const QuizDifficulty = () => {
       <Container>
         <Row>
           <Col className='difficulty-container'>
+            <h2 className='difficulty-title'>Choose Difficulty</h2>
             {[...new Set(selectedQuiz.map((data) => data.difficulty))].map((difficulty, index) => (
               <div  key={index} className='difficulty-btns'>
                 <Button className={difficulty} onClick={() => handleButtonClick(difficulty)} >

@@ -34,6 +34,7 @@ const QuizIndex = () => {
       <Container>
         <Row>
           <Col className='index-container'>
+            <h2 className='index-title'>Choose Your Category</h2>
             {indexData.map((data, index) => (
               <Link key={index} to={`/${data.category}`}>
                 <div className='index-btns'>

@@ -8,8 +8,8 @@ import Button from 'react-bootstrap/Button'
 
 const Home = () => {
   return (
-    <main>
-      <Container xs={{ span: 10 }} sm={{ span: 6 }} md={{ span: 4 }}>
+    <>
+      <Container className='home'>
         <Row>
           <Col>
             <div className='home-container'>
@@ -21,7 +21,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-    </main>
+    </>
   )
 }
 
