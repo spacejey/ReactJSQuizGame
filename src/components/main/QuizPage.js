@@ -38,19 +38,30 @@ const QuizPage = () => {
     bringQuiz()
   }, [quizCategory, quizId])
 
-
-  const handleAnswerClick = (index) => {
-    const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
-    if (currentQuestion) {
-      if (isCorrectAnswer) {
-        console.log('Correct')
-        setScore(score + 10)
-      } else {
-        console.log('Worng') 
-      }
+  const filterAnswerCount = (index) => {
+    if (selectedQuiz.length > 0) {
+      const currentQuestion = selectedQuiz[currentQuizIndex]
+      const correctAnswers = currentQuestion.answerOptions.filter(
+        answerOption => answerOption.isCorrect === true
+      )
+      const answerCount = correctAnswers.length
+      console.log(`Number of Correct Answers: ${answerCount}`)
     }
-    handleNextQuiz()
   }
+
+
+  // const handleAnswerClick = (index) => {
+  //   const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
+  //   if (currentQuestion) {
+  //     if (isCorrectAnswer) {
+  //       console.log('Correct')
+  //       setScore(score + 10)
+  //     } else {
+  //       console.log('Worng') 
+  //     }
+  //   }
+  //   handleNextQuiz()
+  // }
   
   
   const handleNextQuiz = () => {
@@ -78,7 +89,7 @@ const QuizPage = () => {
             <div className='answer-section'>
               {currentQuestion.answerOptions && currentQuestion.answerOptions.map((answerOption, index) => (
                 <div key={index} className='page-btns'>
-                  <Button onClick={() => handleAnswerClick(index)}>{answerOption.answerText}</Button>
+                  <Button onClick={() => filterAnswerCount(index)}>{answerOption.answerText}</Button>
                 </div>
               ))}
             </div>
