@@ -23,18 +23,27 @@
 
 .Easy {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-art;
 }
 
 .Medium {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-fashion;
 }
 
 .Hard {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-music;
+}
+
+@media only screen and (max-width: 800px) {
+  .difficulty-title {
+    font-size: 2rem;
+  }
 }

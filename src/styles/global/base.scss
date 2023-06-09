@@ -11,3 +11,28 @@
   width: 100vw;
   background: linear-gradient(to bottom right, #73ecff, #e4a4ff);
 }
+
+.index-text, .home-text, .difficulty-text {
+  @extend %text-box;
+}
+
+.pre-btn {
+  font-family: $sub-font;
+  background-color: transparent;
+  color: #d1439d;
+  border: 1px solid #e505936f;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  margin-right: 40vw;
+  &:hover{
+    color: #ffffff;
+    background-color: #e50593;
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .index-text, .home-text, .difficulty-text {
+    width: 70vw;
+  }
+}

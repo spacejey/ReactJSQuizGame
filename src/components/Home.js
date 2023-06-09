@@ -9,14 +9,16 @@ import Button from 'react-bootstrap/Button'
 const Home = () => {
   return (
     <>
-      <Container className='home'>
+      <Container>
         <Row>
           <Col>
             <div className='home-container'>
-              <h2 className='home-title'>Let&apos;s Quiz!</h2>
-              <Link to='/quizIndex'>
-                <Button className='start-btn'>Start!</Button>
-              </Link>
+              <div className='home-text'>
+                <h2 className='home-title'>Let&apos;s Quiz!</h2>
+                <Link to='/quizIndex'>
+                  <Button className='start-btn'>Start!</Button>
+                </Link>
+              </div>
             </div>
           </Col>
         </Row>

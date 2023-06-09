@@ -23,25 +23,30 @@
 
 .Art {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-art;
 }
 
 .Fashion {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-fashion;
 }
 
 .Music {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-music;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 800px) {
+  .index-text {
+    width: 70vw;
+  }
   .index-title {
-    font-family: $main-font;
     font-size: 2rem;
   }
 }

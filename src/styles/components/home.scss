@@ -1,14 +1,13 @@
 .home-container {
   @extend %flex-center;
   flex-direction: column;
-  height: 100vh;
 }
 
 .home-title {
   font-family: $main-font;
   font-size: 5rem;
-  color: rgb(233, 0, 128);
   margin-bottom: 20%;
+  color: rgb(233, 0, 128);
   text-shadow: 0px 0px 0 rgb(230,3,151),
                 1px 1px 0 rgb(205,-22,126),
                 2px 2px 0 rgb(180,-47,101),
@@ -23,5 +22,21 @@
 
 .start-btn {
   @extend %start-btn;
+  font-family: $sub-font;
   font-size: 2rem;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+  .home-title {
+    font-size: 4rem;
+    margin-bottom: 20%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .home-title {
+    font-size: 3rem;
+    margin-bottom: 20%;
+  }
 }
