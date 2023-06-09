@@ -39,56 +39,22 @@ const QuizPage = () => {
     bringQuiz()
   }, [quizCategory, quizId])
 
-
-  useEffect(() => {
-    const correctAnswersCount = calculateCorrectAnswers()
-    console.log('Number of correct answers:', correctAnswersCount)
-  }, [selectedQuestions, currentQuizIndex])
-
-  const handleAnswerClick = () => {
-    const userSelectedAnswer = selectedQuestions[currentQuizIndex].answerOptions.filter(option => option.isSelected)
-    setSelectedAnswers(userSelectedAnswer)
-    const userSelectedCount = userSelectedAnswer.length
-    if (userSelectedCount === 1) {
-      oneAnswer()
-    } else if (userSelectedCount > 1) {
-      multipleAnswer()
+  const handleAnswerClick = (index) => {
+    if (!currentQuestion) return
+  
+    const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
+    if (isCorrectAnswer) {
+      setScore((prevScore) => prevScore + 10)
     }
-    compareAnswer()
-  }
-
-  const compareAnswer = () => {
-    const userSelectedTrueCount = selectedAnswers.filter(answer => answer.isCorrect).length
-    const correctAnswerTrueCount = currentQuestion.answerOptions.filter(option => option.isCorrect).length
-    if (userSelectedTrueCount === correctAnswerTrueCount) {
-      console.log('Correct')
-    }
-    handleNextQuiz()
-  }
-
-  const calculateCorrectAnswers = () => {
-    let correctAnswersCount = 0
-    selectedQuestions.forEach(quiz => {
-      if (quiz.answerOptions[currentQuizIndex].isCorrect === true) {
-        correctAnswersCount++
-      }
+  
+    setSelectedAnswers((prevSelectedAnswers) => {
+      const newSelectedAnswers = [...prevSelectedAnswers]
+      newSelectedAnswers[currentQuizIndex] = index
+      return newSelectedAnswers
     })
-    return correctAnswersCount
-  }
-
-  const oneAnswer = () => {
-    const userSelectedAnswer = selectedAnswers.find(answer => answer.isCorrect)
-    if (userSelectedAnswer) {
-      calculateCorrectAnswers()
-    }
-  }
-
-  const multipleAnswer = () => {
-    const userSelectedAnswer = selectedAnswers.filter(answer => answer.isSelected)
-    const isAllCorrect = userSelectedAnswer.every(answer => answer.isCorrect)
-    if (isAllCorrect) {
-      calculateCorrectAnswers()
-    }
+  
+    setShowScore(true)
+    setTimeout(handleNextQuiz, 300)
   }
 
   const handleNextQuiz = () => {
@@ -103,7 +69,7 @@ const QuizPage = () => {
     <>
       <Button className='pre-btn' as={Link} to={'/'}> Home </Button>
       <Card className='quiz-card'>
-        {isGameOver && <GameOverModal score={score} />}
+        {isGameOver && <GameOverModal score={score} total={selectedQuestions.length * 10} />}
         {currentQuestion && (
           <>
             <Card.Header as="h6" className='quiz-top-text'>
