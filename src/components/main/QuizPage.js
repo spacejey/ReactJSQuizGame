@@ -6,11 +6,9 @@ import DummyData from '../common/DummyData'
 import GameOverModal from '../common/GameOverModal'
 
 // Bootstrap
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+
 
 const QuizPage = () => {
   const { quizCategory, quizId } = useParams()
@@ -19,10 +17,8 @@ const QuizPage = () => {
   const [score, setScore] = useState(0)
   const [showScore, setShowScore] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
-  const [showModal, setShowModal] = useState(false)
   const [selectedAnswers, setSelectedAnswers] = useState([])
   const currentQuestion = selectedQuestions[currentQuizIndex]
-  console.log('currentQuestion', currentQuestion)
 
 
   useEffect(() => {
@@ -30,7 +26,6 @@ const QuizPage = () => {
       try {
         const bringQuiz = await DummyData.filter(
           quiz => quiz.category === quizCategory && quiz.difficulty === quizId)
-        console.log('bringQuiz', bringQuiz)
         setSelectedQuestions(bringQuiz)
       } catch (error) {
         console.log(error)
@@ -39,23 +34,24 @@ const QuizPage = () => {
     bringQuiz()
   }, [quizCategory, quizId])
 
+
+
   const handleAnswerClick = (index) => {
     if (!currentQuestion) return
-  
     const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
     if (isCorrectAnswer) {
       setScore((prevScore) => prevScore + 10)
     }
-  
     setSelectedAnswers((prevSelectedAnswers) => {
       const newSelectedAnswers = [...prevSelectedAnswers]
       newSelectedAnswers[currentQuizIndex] = index
       return newSelectedAnswers
     })
-  
     setShowScore(true)
     setTimeout(handleNextQuiz, 300)
   }
+
+
 
   const handleNextQuiz = () => {
     if (currentQuizIndex === selectedQuestions.length - 1) {
@@ -64,6 +60,8 @@ const QuizPage = () => {
       setCurrentQuizIndex(currentQuizIndex + 1)
     }
   }
+
+
 
   return (
     <>

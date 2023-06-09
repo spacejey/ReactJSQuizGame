@@ -1,28 +1,25 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
+// Components
+import DummyData from '../common/DummyData'
+
 // Bootstrap
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
-// Components
-import DummyData from '../common/DummyData'
-
 
 const QuizDifficulty = () => {
-
-  // state
   const { quizCategory } = useParams()
   const [ selectedQuiz, setSelectedQuiz ] = useState([])
   
-  //! On Mount
+
   useEffect(() => {
     const getDifficulty = async () => {
       try {
         const selectQuizData = await DummyData.filter(quiz => quiz.category === quizCategory)
-        console.log('selectQuizData =>', selectQuizData)
         setSelectedQuiz(selectQuizData)
       } catch (error) {
         console.log(error)
@@ -30,10 +27,10 @@ const QuizDifficulty = () => {
     }
     getDifficulty()
   }, [quizCategory])
+  
 
   const handleButtonClick = (difficulty) => {
     const filteredQuiz = selectedQuiz.filter(data => data.difficulty === difficulty)
-    console.log(filteredQuiz)
     window.location.href = `/${quizCategory}/${difficulty}`
   }
 
