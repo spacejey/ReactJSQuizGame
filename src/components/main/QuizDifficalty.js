@@ -43,13 +43,17 @@ const QuizDifficulty = () => {
       <Container>
         <Row>
           <Col className='difficulty-container'>
-            {[...new Set(selectedQuiz.map((data) => data.difficulty))].map((difficulty, index) => (
-              <div  key={index} className='difficulty-btns'>
-                <Button className={difficulty} onClick={() => handleButtonClick(difficulty)} >
-                  {difficulty}
-                </Button>
-              </div>
-            ))}
+            <div className='difficulty-text'>
+              <Button className='pre-btn' as={Link} to={'/quizIndex'}> back </Button>
+              <h2 className='difficulty-title'>Choose Difficulty</h2>
+              {[...new Set(selectedQuiz.map((data) => data.difficulty))].map((difficulty, index) => (
+                <div  key={index} className='difficulty-btns'>
+                  <Button className={difficulty} onClick={() => handleButtonClick(difficulty)} >
+                    {difficulty}
+                  </Button>
+                </div>
+              ))}
+            </div>
           </Col>
         </Row>
       </Container>

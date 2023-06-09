@@ -1,6 +1,20 @@
 .index-container {
   @extend %flex-center;
+  flex-direction: column;
   height: 100vh;
+}
+
+.index-title {
+  font-family: $main-font;
+  font-size: 3rem;
+  color: #e9c200;
+  margin-bottom: 10%;
+  text-shadow: 0px 0px 0 rgb(207,-23,138),
+                1px 1px 0 rgb(158,-72,89),
+                2px 2px  0 rgb(110,-120,41),
+                3px 3px 2px rgba(105, 72, 0, 0),
+                3px 3px 1px rgba(69,0,38,0.5),
+                0px 0px 2px rgba(73, 57, 2, 0.2);
 }
 
 .index-btns {
@@ -9,18 +23,30 @@
 
 .Art {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-art;
 }
 
 .Fashion {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-fashion;
 }
 
 .Music {
   padding: 10px 30px 10px 30px;
+  margin-top: 20px;
   @extend %index-btn;
   @extend %button-hover-music;
+}
+
+@media only screen and (max-width: 800px) {
+  .index-text {
+    width: 70vw;
+  }
+  .index-title {
+    font-size: 2rem;
+  }
 }

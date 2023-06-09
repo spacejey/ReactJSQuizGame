@@ -34,15 +34,19 @@ const QuizIndex = () => {
       <Container>
         <Row>
           <Col className='index-container'>
-            {indexData.map((data, index) => (
-              <Link key={index} to={`/${data.category}`}>
-                <div className='index-btns'>
-                  <Button className={`${data.category}`}>
-                    {data.category}
-                  </Button>
-                </div>
-              </Link>
-            ))}
+            <div className='index-text'>
+              <Button className='pre-btn' as={Link} to={'/'}> back </Button>
+              <h2 className='index-title'>Choose Your Category</h2>
+              {indexData.map((data, index) => (
+                <Link key={index} to={`/${data.category}`}>
+                  <div className='index-btns'>
+                    <Button className={`${data.category}`}>
+                      {data.category}
+                    </Button>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </Col>
         </Row>
       </Container>

@@ -8,20 +8,22 @@ import Button from 'react-bootstrap/Button'
 
 const Home = () => {
   return (
-    <main>
-      <Container xs={{ span: 10 }} sm={{ span: 6 }} md={{ span: 4 }}>
+    <>
+      <Container>
         <Row>
           <Col>
             <div className='home-container'>
-              <h2 className='home-title'>Let&apos;s Quiz!</h2>
-              <Link to='/quizIndex'>
-                <Button className='start-btn'>Start!</Button>
-              </Link>
+              <div className='home-text'>
+                <h2 className='home-title'>Let&apos;s Quiz!</h2>
+                <Link to='/quizIndex'>
+                  <Button className='start-btn'>Start!</Button>
+                </Link>
+              </div>
             </div>
           </Col>
         </Row>
       </Container>
-    </main>
+    </>
   )
 }
 
