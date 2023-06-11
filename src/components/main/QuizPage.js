@@ -9,7 +9,6 @@ import GameOverModal from '../common/GameOverModal'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
-
 const QuizPage = () => {
   const { quizCategory, quizId } = useParams()
   const [selectedQuestions, setSelectedQuestions] = useState([])
@@ -35,25 +34,33 @@ const QuizPage = () => {
   }, [quizCategory, quizId])
 
 
-
+  let arr = []
   const handleAnswerClick = (index) => {
-    if (!currentQuestion) return
-    const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
-    if (isCorrectAnswer) {
-      setScore((prevScore) => prevScore + 10)
+    // if (!currentQuestion) return
+    // const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
+    // if (isCorrectAnswer ) {
+    //   setScore((prevScore) => prevScore + 10)
+    // }
+    // setShowScore(true)
+    if (currentQuestion.answer === 'Double' && arr.length < 2) {
+      arr.push(index)
+      console.log(arr.length)
+      if (arr.length === 2) {
+        handleNextQuiz()
+      }
+    } else if (currentQuestion.answer === 'Single' && arr.length < 1) {
+      arr.push(index)
+      console.log(arr.length)
+      if (arr.length === 1) {
+        handleNextQuiz()
+      }
     }
-    setSelectedAnswers((prevSelectedAnswers) => {
-      const newSelectedAnswers = [...prevSelectedAnswers]
-      newSelectedAnswers[currentQuizIndex] = index
-      return newSelectedAnswers
-    })
-    setShowScore(true)
-    setTimeout(handleNextQuiz, 300)
   }
 
 
 
   const handleNextQuiz = () => {
+    arr = []
     if (currentQuizIndex === selectedQuestions.length - 1) {
       setIsGameOver(true)
     } else {
@@ -62,7 +69,7 @@ const QuizPage = () => {
   }
 
 
-
+  
   return (
     <>
       <Button className='pre-btn' as={Link} to={'/'}> Home </Button>
