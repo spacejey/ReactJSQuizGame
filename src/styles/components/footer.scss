@@ -1,26 +1,51 @@
-.footer {
-  background-color: #7bff00;
-  text-align: right;
-  position: fixed;
-  left: 0;
+.animated-title {
+  font-size: 23px; 
+  font-family: 'Raleway',Sans-serif; 
+  font-weight: 300; 
+  position: fixed; 
   bottom: 0;
   width: 100%;
-  overflow: hidden;
+  max-width: 100%;
+  padding: 30px;
 }
 
-.footer-text {
-  margin-right: 10px;
-  animation: footer-animation 10s linear infinite;
+.track {
+  padding: 90px;
+  background-color: #7bff00;
+  position: absolute; 
   white-space: nowrap;
-  animation-fill-mode: forwards;
-  width: 100%;
+  will-change: transform;
+  animation: marquee 60s linear infinite; 
 }
 
-@keyframes footer-animation {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (hover: hover) and (min-width: 300px) {
+  .animated-title .content {
+    transform: translateY(calc(100% - 8rem));
   }
 }
+
+@media only screen and (max-width: 630px){
+  .animated-title {
+    font-size: 20px; 
+    padding: 30px;
+  }
+  .track {
+    padding: 98px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .animated-title {
+    font-size: 15px; 
+    padding: 20px;
+  }
+  .track {
+    padding: 105px;
+  }
+}
+
