@@ -5,7 +5,6 @@ import DummyData from '../common/DummyData'
 // Components
 import GameOverModal from '../common/GameOverModal'
 
-// Bootstrap
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
@@ -34,33 +33,28 @@ const QuizPage = () => {
   }, [quizCategory, quizId])
 
 
-  let arr = []
   const handleAnswerClick = (index) => {
-    // if (!currentQuestion) return
-    // const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
-    // if (isCorrectAnswer ) {
-    //   setScore((prevScore) => prevScore + 10)
-    // }
-    // setShowScore(true)
-    if (currentQuestion.answer === 'Double' && arr.length < 2) {
-      arr.push(index)
-      console.log(arr.length)
-      if (arr.length === 2) {
+    if (!currentQuestion) return
+    const isCorrectAnswer = currentQuestion.answerOptions[index].isCorrect
+    if (isCorrectAnswer) {
+      setScore((prevScore) => prevScore + 10)
+    }
+    setShowScore(true)
+    if (currentQuestion.answer === 'Double' && selectedAnswers.length < 2) {
+      setSelectedAnswers((prevAnswers) => [...prevAnswers, index])
+      if (selectedAnswers.length === 1) {
         handleNextQuiz()
       }
-    } else if (currentQuestion.answer === 'Single' && arr.length < 1) {
-      arr.push(index)
-      console.log(arr.length)
-      if (arr.length === 1) {
-        handleNextQuiz()
-      }
+    } else if (currentQuestion.answer === 'Single' && selectedAnswers.length < 1) {
+      setSelectedAnswers((prevAnswers) => [...prevAnswers, index])
+      handleNextQuiz()
     }
   }
 
 
 
   const handleNextQuiz = () => {
-    arr = []
+    setSelectedAnswers([])
     if (currentQuizIndex === selectedQuestions.length - 1) {
       setIsGameOver(true)
     } else {
