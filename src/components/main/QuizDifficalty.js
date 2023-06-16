@@ -42,7 +42,8 @@ const QuizDifficulty = () => {
           <Col className='difficulty-container'>
             <div className='difficulty-text'>
               <Button className='pre-btn' as={Link} to={'/quizIndex'}> back </Button>
-              <h2 className='difficulty-title'>Choose Difficulty</h2>
+              <h2 className='difficulty-title'>Choose <br /> 
+                <span style={{ textDecoration: 'underLine' }}>Difficulty!</span></h2>
               {[...new Set(selectedQuiz.map((data) => data.difficulty))].map((difficulty, index) => (
                 <div  key={index} className='difficulty-btns'>
                   <Button className={difficulty} onClick={() => handleButtonClick(difficulty)} >

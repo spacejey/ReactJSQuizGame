@@ -5,6 +5,7 @@ import Home from './components/Home'
 import QuizIndex from './components/main/QuizIndex'
 import QuizPage from './components/main/QuizPage'
 import QuizDifficalty from './components/main/QuizDifficalty'
+import Footer from './components/common/footer'
 
 // Bootstrap
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/:quizCategory/:quizId' element={<QuizPage />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   )
 }

@@ -36,7 +36,8 @@ const QuizIndex = () => {
           <Col className='index-container'>
             <div className='index-text'>
               <Button className='pre-btn' as={Link} to={'/'}> back </Button>
-              <h2 className='index-title'>Choose Your Category</h2>
+              <h1 className='index-title'>Choose <br />
+                <span style={{ textDecoration: 'underLine' }}>Category!</span></h1>
               {indexData.map((data, index) => (
                 <Link key={index} to={`/${data.category}`}>
                   <div className='index-btns'>

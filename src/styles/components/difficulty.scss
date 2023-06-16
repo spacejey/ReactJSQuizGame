@@ -7,23 +7,18 @@
 .difficulty-title {
   font-family: $main-font;
   font-size: 3rem;
-  color: #00e942;
-  margin-bottom: 10%;
-  text-shadow: 0px 0px 0 rgb(207,-23,138),
-  1px 1px 0 rgb(158,-72,89),
-  2px 2px  0 rgb(110,-120,41),
-  3px 3px 2px rgba(7, 69, 0, 0),
-  3px 3px 1px rgba(0, 69, 8, 0.5),
-  0px 0px 2px rgba(0, 69, 6, 0.2);
+  margin: 50px 0 50px 0;
+  color: #000000;
 }
 
 .difficulty-btns {
-  margin: 10px;
+  margin-bottom: 25px;
 }
 
 .Easy {
   padding: 10px 30px 10px 30px;
   margin-top: 20px;
+  font-size: 20px;
   @extend %index-btn;
   @extend %button-hover-art;
 }
@@ -31,6 +26,7 @@
 .Medium {
   padding: 10px 30px 10px 30px;
   margin-top: 20px;
+  font-size: 20px;
   @extend %index-btn;
   @extend %button-hover-fashion;
 }
@@ -38,6 +34,7 @@
 .Hard {
   padding: 10px 30px 10px 30px;
   margin-top: 20px;
+  font-size: 20px;
   @extend %index-btn;
   @extend %button-hover-music;
 }

@@ -4,6 +4,7 @@ import DummyData from '../common/DummyData'
 
 // Components
 import GameOverModal from '../common/GameOverModal'
+import googleEyeImage from '../../assets/googleeye.png'
 
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
@@ -78,10 +79,8 @@ const QuizPage = () => {
               </div>
             </Card.Header>
             <Card.Body>
-              <div>
-                <p></p>
-              </div>
               <div className='question-text'>
+                <img src={googleEyeImage} className='google-eye-page' />
                 <Card.Title>
                   <span style={{ fontSize: '25px' }}>{currentQuestion.question}<br /></span>
                   <span style={{ fontSize: '17px', color: 'grey', marginLeft: '13px', fontStyle: 'italic' }}>

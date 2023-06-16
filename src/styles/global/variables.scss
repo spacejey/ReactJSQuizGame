@@ -1,5 +1,5 @@
-$main-font: 'Bagel Fat One', cursive;
-$sub-font: 'Geologica', sans-serif;
+$main-font: 'Gasoek One', sans-serif;
+$sub-font: 'Poppins', sans-serif;
 
 %flex-center {
   display: flex;
@@ -15,77 +15,80 @@ $sub-font: 'Geologica', sans-serif;
 
 %text-box {
   text-align: center;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.732) 0%, rgba(255, 255, 255, 0.21) 100%);
+  background-color: #ffffff;
   padding: 30px 50px 100px 50px;
   width: 40vw;
-  border-radius: 30px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.617);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 }
+
 
 %start-btn {
-  background: rgba(99, 99, 99, 0.539);
+  background: transparent;
   box-shadow: 0 15px 35px rgba(0,0,0,0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-right: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-left: none;
-  color: white;
-  border-radius: 50px;
-  z-index: 1;
-  padding: 10px;
-  letter-spacing: 1px;
-  overflow: hidden;
-  transition: 0.5s;
-  font-size: 30px;
-  &:hover{
-    border: 3px solid white;
-    letter-spacing: 3px;
-    font-size: 35px;
-    color: #ffffff;
-    background-color: rgb(254, 148, 166);
-  }
-}
-
-%index-btn {
-  background: rgba(99, 99, 99, 0.539);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-right: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: none;
-  color: white;
-  border-radius: 50px;
+  color: rgb(0, 0, 0);
+  border-radius: 0px;
   z-index: 1;
   padding: 10px;
   letter-spacing: 1px;
   overflow: hidden;
   transition: 0.3s;
-  font-size: 30px;
+  font-size: 15px;
   &:hover{
-    border: 3px solid white;
-    letter-spacing: 3px;
-    font-size: 35px;
-    color: #ffffff;
-    background-color: rgb(254, 148, 166);
+    color: #000000;
+    background-color: #b7ff00;
+    border: 2px solid white;
+    letter-spacing: 2px;
+  }
+}
+
+%index-btn {
+  background: transparent;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  color: rgb(0, 0, 0);
+  border-radius: 0px;
+  z-index: 1;
+  padding: 10px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: 0.3s;
+  font-size: 15px;
+  &:hover{
+    border: 2px solid white;
+    letter-spacing: 2px;
   }
 }
 
 %button-hover-art{
   &:hover {
-    background: #84ccd1;
+    font-size: 20px;
+    color: #000000;
+    background: #7bff00;
   }
 }
 
 %button-hover-fashion{
   &:hover {
-    background: #da8fc0;
+    font-size: 20px;
+    color: #000000;
+    background: #ff97fa;
   }
 }
 
 %button-hover-music{
   &:hover {
-  background: #d3e094;
+    font-size: 20px;
+    color: #000000;
+    background: #48ddff;
   }
 }
 

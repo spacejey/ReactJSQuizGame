@@ -1,0 +1,26 @@
+.footer {
+  background-color: #7bff00;
+  text-align: right;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.footer-text {
+  margin-right: 10px;
+  animation: footer-animation 10s linear infinite;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+  width: 100%;
+}
+
+@keyframes footer-animation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
